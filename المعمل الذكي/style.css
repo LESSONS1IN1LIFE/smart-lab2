@@ -1,0 +1,185 @@
+/* استيراد الخطوط */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+/* التأثيرات الأساسية */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: #f9fafb;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
+/* تحسين شريط التنقل */
+.navbar {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 20px 40px;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: #007bff;
+}
+
+.hero-section {
+  background: linear-gradient(rgba(84, 54, 234, 0.5), rgba(21, 21, 151, 0.6)), url('lab-bg.jpg') center/cover no-repeat;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 0 0 30px 30px;
+  animation: fadeIn 2s ease-out;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  animation: slideUp 1s ease-out;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
+  opacity: 0;
+  animation: fadeInUp 2s 1s ease-out forwards;
+}
+
+.section-title {
+  background: #eef2ff;
+  color: #4338ca;
+  border-left: 6px solid #6366f1;
+  padding: 10px 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 50px auto 30px;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  margin: 20px auto;
+  max-width: 750px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+#drobdown_list{
+  width: 150px;
+  padding:17px;
+  height: 10px;
+  color: white;
+}
+
+/* تأثيرات الانتقال للصور */
+.transition-img {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: scale(1.1);
+}
+
+#doorStatusImage, #labRoom {
+  display: none;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+#labRoom.visible {
+  display: block;
+  transform: scale(1.05);
+}
+
+#doorStatusImage.visible {
+  display: block;
+  transform: scale(1.05);
+}
+
+/* التنقلات عند إدخال عدد الطلاب */
+#studentsCount:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* تأثيرات التنبيه عند الامتلاء */
+.alert-full {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  z-index: 1055;
+  display: none;
+  animation: slideDown 0.5s ease-out;
+}
+
+/* الحواف المتدرجة للصورة */
+.lab-simulation img {
+  border-radius: 15px;
+  transition: all 0.4s ease-in-out;
+}
+
+/* تحريك صور الباب */
+#doorStatusImage.visible {
+  animation: scaleUp 0.5s ease-in-out;
+}
+
+/* تأثيرات الحواف */
+footer {
+  background: #f1f5f9;
+  padding: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #6b7280;
+  margin-top: 40px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* الأنيميشنات */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
